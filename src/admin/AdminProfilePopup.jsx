@@ -22,8 +22,8 @@ const AdminProfilePopup = ({ isOpen, onClose }) => {
 
   const fetchAdmin = async () => {
     try {
-      const res = await axios.get(`${API_BASE_URL}/profile`);
-       
+      const res = await axios.get(`${API_BASE_URL}/profile/`);
+
       // ✅ FIXED HERE
       setAdmin(res.data.profile);
     } catch (error) {
@@ -43,22 +43,22 @@ const AdminProfilePopup = ({ isOpen, onClose }) => {
 
   // SAVE PROFILE
 
- const handleSave = async () => {
+  const handleSave = async () => {
 
-  const res = await axios.put(
-    `${API_BASE_URL}/profile`,
-    admin
-  );
+    const res = await axios.put(
+      `${API_BASE_URL}/profile/`,
+      admin
+    );
 
-  setMessage(res.data.message); // ✅ show backend message
-  setTimeout(() => {
+    setMessage(res.data.message); // ✅ show backend message
+    setTimeout(() => {
 
-  setMessage("");
+      setMessage("");
 
-}, 3000);
-  setEditMode(false);
+    }, 3000);
+    setEditMode(false);
 
-};
+  };
 
   if (!isOpen) return null;
 

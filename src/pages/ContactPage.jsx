@@ -96,49 +96,49 @@ const ContactPage = ({
 
 
   const handleSubmit = async (e) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailRegex.test(formData.email)) {
-    setAlert({
-      show: true,
-      type: "error",
-      message: "Please enter a valid email address.",
-    });
-    return;
-  }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      setAlert({
+        show: true,
+        type: "error",
+        message: "Please enter a valid email address.",
+      });
+      return;
+    }
 
-  // ✅ EMAIL EXISTENCE CHECK
-  if (!checkEmailExistence(formData.email)) return;
+    // ✅ EMAIL EXISTENCE CHECK
+    if (!checkEmailExistence(formData.email)) return;
 
-  const phoneRegex = /^\d{10}$/;
-  if (formData.phone && !phoneRegex.test(formData.phone)) {
-    setAlert({
-      show: true,
-      type: "error",
-      message: "Please enter a valid 10-digit mobile number.",
-    });
-    return;
-  }
+    const phoneRegex = /^\d{10}$/;
+    if (formData.phone && !phoneRegex.test(formData.phone)) {
+      setAlert({
+        show: true,
+        type: "error",
+        message: "Please enter a valid 10-digit mobile number.",
+      });
+      return;
+    }
 
-  try {
-    setLoading(true);
-
-    // 🔥 1️⃣ SAVE TO DATABASE FIRST
-    await axios.post(`${API_BASE_URL}/formleads`, {
-      name: formData.name,
-      email: formData.email,
-      phone: formData.phone,
-      message: formData.message,
-    });
-
-    // 🔥 2️⃣ THEN SEND EMAIL (even if this fails, DB is already saved)
     try {
-      await emailjs.send(
-        "service_0rfgenl",
-        "template_1t0tf7e",
-        {
-          message: `
+      setLoading(true);
+
+      // 🔥 1️⃣ SAVE TO DATABASE FIRST
+      await axios.post(`${API_BASE_URL}/formleads`, {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        message: formData.message,
+      });
+
+      // 🔥 2️⃣ THEN SEND EMAIL (even if this fails, DB is already saved)
+      try {
+        await emailjs.send(
+          "service_0rfgenl",
+          "template_1t0tf7e",
+          {
+            message: `
           Title: ${title}
           Name: ${formData.name}
           Email: ${formData.email}
@@ -146,27 +146,27 @@ const ContactPage = ({
           Message:
           ${formData.message}
           `,
-        },
-        "uAT0iHgXv_Fm3WosM"
-      );
-    } catch (emailError) {
-      console.log("Email failed but data saved:", emailError);
+          },
+          "uAT0iHgXv_Fm3WosM"
+        );
+      } catch (emailError) {
+        console.log("Email failed but data saved:", emailError);
+      }
+
+      showSuccessToast("Message sent successfully!");
+
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        message: "",
+      });
+    } catch {
+      showErrorToast("Failed to send message. Please try again.");
+    } finally {
+      setLoading(false);
     }
-
-    showSuccessToast("Message sent successfully!");
-
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      message: "",
-    });
-  } catch {
-    showErrorToast("Failed to send message. Please try again.");
-  } finally {
-    setLoading(false);
-  }
-};
+  };
 
   // const handleSubmit = async (e) => {
   //   e.preventDefault();
@@ -333,11 +333,10 @@ const ContactPage = ({
               <button
                 type="submit"
                 disabled={loading}
-                className={`h-11 rounded-full text-white text-sm font-medium transition ${
-                  loading
-                    ? "bg-gray-500 cursor-not-allowed"
-                    : "bg-gradient-to-r from-[#0B2CC3] via-[#1A45E5] to-[#0B2CC3] hover:scale-105"
-                }`}
+                className={`h-11 rounded-full text-white text-sm font-medium transition ${loading
+                  ? "bg-gray-500 cursor-not-allowed"
+                  : "bg-gradient-to-r from-[#0B2CC3] via-[#1A45E5] to-[#0B2CC3] hover:scale-105"
+                  }`}
               >
                 {loading ? (
                   <div className="flex items-center justify-center gap-2">
@@ -365,11 +364,10 @@ const ContactPage = ({
               >
                 <div
                   className={`relative overflow-hidden rounded-xl border p-4 text-white shadow-lg
-        ${
-          alert.type === "success"
-            ? "bg-gradient-to-r from-[#0B2CC3] to-[#4D6DFF] border-[#6D87FF]"
-            : "bg-gradient-to-r from-[#7A0000] to-[#b30089] border-[#f44308]"
-        }`}
+        ${alert.type === "success"
+                      ? "bg-gradient-to-r from-[#0B2CC3] to-[#4D6DFF] border-[#6D87FF]"
+                      : "bg-gradient-to-r from-[#7A0000] to-[#b30089] border-[#f44308]"
+                    }`}
                 >
                   {/* MESSAGE */}
                   <p className="text-sm font-medium leading-snug">

@@ -12,7 +12,7 @@ function Steps() {
   }, []);
 
   const fetchSteps = async () => {
-    const res = await axios.get(`${API_BASE_URL}/steps`);
+    const res = await axios.get(`${API_BASE_URL}/steps/`);
 
     const formatted = res.data.map((step, index) => ({
       number: index + 1,
@@ -113,21 +113,19 @@ function Steps() {
               >
                 <div className="flex items-start gap-4">
                   <span
-                    className={`w-7 h-7 min-w-7 min-h-7 rounded-full flex items-center justify-center text-sm font-medium border flex-shrink-0 ${
-                      activeStep === index
-                        ? "border-blue-400 text-blue-400"
-                        : "border-white/30 text-white/50"
-                    }`}
+                    className={`w-7 h-7 min-w-7 min-h-7 rounded-full flex items-center justify-center text-sm font-medium border flex-shrink-0 ${activeStep === index
+                      ? "border-blue-400 text-blue-400"
+                      : "border-white/30 text-white/50"
+                      }`}
                   >
                     {step.number}
                   </span>
 
                   <span
                     className={`text-[16px] leading-snug transition-all duration-300 
-                      ${
-                        activeStep === index
-                          ? "text-blue-400 font-semibold"
-                          : "text-white/60"
+                      ${activeStep === index
+                        ? "text-blue-400 font-semibold"
+                        : "text-white/60"
                       }
                     `}
                   >

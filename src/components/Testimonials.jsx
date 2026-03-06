@@ -7,7 +7,7 @@ function Testimonials() {
 
   useEffect(() => {
     axios
-      .get(`${API_BASE_URL}/testimonials`)
+      .get(`${API_BASE_URL}/testimonials//`)
       .then((res) => setTestimonials(res.data));
   }, []);
 
@@ -99,7 +99,7 @@ function Testimonials() {
                 <div className="flex items-center gap-3.5">
                   <div className="h-12 w-12 overflow-hidden rounded-full border border-white/20">
                     <img
-                      src={`${API_BASE_URL}/uploads/${item.image}`}
+                      src={`${API_BASE_URL}/uploads/${item.image}/`}
                       alt={item.name}
                       className="h-full w-full object-cover"
                     />

@@ -11,15 +11,15 @@ const AdminLogin = () => {
     e.preventDefault();
 
     try {
-      const res = await axios.post(`${API_BASE_URL}/auth/login`, {
+      const res = await axios.post(`${API_BASE_URL}/auth/login/`, {
         email,
         password,
       });
 
       localStorage.setItem("adminToken", res.data.token);
       console.log("Login successful, token stored:", res); // ✅ Debug log
-      if(res.status === 200) {
-        
+      if (res.status === 200) {
+
         window.location.href = "/admin/dashboard";
       }
 

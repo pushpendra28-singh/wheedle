@@ -11,7 +11,7 @@ function Partners() {
 
   const fetchPartners = async () => {
     try {
-      const res = await axios.get(`${API_BASE_URL}/partners`);
+      const res = await axios.get(`${API_BASE_URL}/partners/`);
 
       setPartners(res.data);
     } catch (error) {
@@ -29,24 +29,24 @@ function Partners() {
 
         {/* Partner Logos */}
         {/* Partner Logos Moving */}
-<div className="w-full overflow-hidden">
-  <div className="flex items-center gap-10 animate-scroll">
+        <div className="w-full overflow-hidden">
+          <div className="flex items-center gap-10 animate-scroll">
 
-    {[...partners, ...partners].map((item, index) => (
-      <div
-        key={index}
-        className="w-[80px] h-[34px] sm:w-[95px] sm:h-[40px] md:w-[110px] md:h-[46px] lg:w-[125px] lg:h-[53px] flex items-center justify-center flex-shrink-0"
-      >
-        <img
-          src={`${API_BASE_URL}/uploads/${item.logo}`}
-          alt={item.name}
-          className="max-w-full max-h-full object-contain"
-        />
-      </div>
-    ))}
+            {[...partners, ...partners].map((item, index) => (
+              <div
+                key={index}
+                className="w-[80px] h-[34px] sm:w-[95px] sm:h-[40px] md:w-[110px] md:h-[46px] lg:w-[125px] lg:h-[53px] flex items-center justify-center flex-shrink-0"
+              >
+                <img
+                  src={`${API_BASE_URL}/uploads/${item.logo}`}
+                  alt={item.name}
+                  className="max-w-full max-h-full object-contain"
+                />
+              </div>
+            ))}
 
-  </div>
-</div>
+          </div>
+        </div>
         {/* <div className="w-full flex flex-wrap items-center justify-center gap-x-10 gap-y-6">
           {partners.map((item) => (
             <img

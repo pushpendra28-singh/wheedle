@@ -20,7 +20,7 @@ function Hero({ openBot }) {
   useEffect(() => {
     axios
 
-      .get(`${API_BASE_URL}/hero`)
+      .get(`${API_BASE_URL}/hero/`)
 
       .then((res) => {
         if (res.data) {

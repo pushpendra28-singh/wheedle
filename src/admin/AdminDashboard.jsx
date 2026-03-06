@@ -45,7 +45,7 @@ const AdminDashboard = () => {
   const [applications, setApplications] = useState(0);
   const [leadsCount, setLeadsCount] = useState(0);
   const [formLeadsCount, setFormLeadsCount] = useState(0);
-  
+
 
   useEffect(() => {
     fetchCounts();
@@ -54,30 +54,30 @@ const AdminDashboard = () => {
   const fetchCounts = async () => {
     try {
       const jobRes = await axios.get(
-        `${API_BASE_URL}/jobs/count/all`,
+        `${API_BASE_URL}/jobs/count/all/`,
       );
 
       const testimonialRes = await axios.get(
-        `${API_BASE_URL}/testimonial/count/all`,
+        `${API_BASE_URL}/testimonial/count/all/`,
       );
       const blogRes = await axios.get(
-        `${API_BASE_URL}/blogs/count/all`,
+        `${API_BASE_URL}/blogs/count/all/`,
       );
       const applicationsRes = await axios.get(
-        `${API_BASE_URL}/contact/count/all`,
+        `${API_BASE_URL}/contact/count/all/`,
       );
 
       const leadsRes = await axios.get(
-        `${API_BASE_URL}/leads/count/all`,
+        `${API_BASE_URL}/leads/count/all/`,
       );
       // Form Leads Count
       const formLeadsRes = await axios.get(
-        `${API_BASE_URL}/formleads/count/all`,
+        `${API_BASE_URL}/formleads/count/all/`,
       );
       console.log("Counts fetched:", jobRes)
       // alert(jobRes.data.count);
       setJobCount(jobRes.data.count);
-      
+
       setTestimonialCount(testimonialRes.data.count);
       setBlogCount(blogRes.data.count);
       setApplications(applicationsRes.data.count);
@@ -138,11 +138,10 @@ const AdminDashboard = () => {
         transition-all duration-200
         cursor-pointer
 
-        ${
-          activePage === "dashboard"
-            ? "bg-white text-black shadow-md"
-            : "hover:bg-white/10"
-        }
+        ${activePage === "dashboard"
+                ? "bg-white text-black shadow-md"
+                : "hover:bg-white/10"
+              }
       `}
           >
             <LayoutDashboard size={18} />
@@ -170,9 +169,8 @@ const AdminDashboard = () => {
 
             {/* Hero submenu */}
             <div
-              className={`overflow-hidden transition-all duration-300 ${
-                homeOpen ? "max-h-40" : "max-h-0"
-              }`}
+              className={`overflow-hidden transition-all duration-300 ${homeOpen ? "max-h-40" : "max-h-0"
+                }`}
             >
               <button
                 onClick={() => setActivePage("hero")}
@@ -184,11 +182,10 @@ const AdminDashboard = () => {
       transition-all duration-200
       cursor-pointer
 
-      ${
-        activePage === "hero"
-          ? "bg-white text-black shadow-md"
-          : "text-white hover:bg-white/10"
-      }
+      ${activePage === "hero"
+                    ? "bg-white text-black shadow-md"
+                    : "text-white hover:bg-white/10"
+                  }
     `}
               >
                 {/* empty icon space for alignment */}
@@ -205,11 +202,10 @@ const AdminDashboard = () => {
       rounded-lg
       transition-all duration-200
       cursor-pointer
-      ${
-        activePage === "partners" || activePage === "addPartner"
-          ? "bg-white text-black shadow-md"
-          : "text-white hover:bg-white/10"
-      }`}
+      ${activePage === "partners" || activePage === "addPartner"
+                    ? "bg-white text-black shadow-md"
+                    : "text-white hover:bg-white/10"
+                  }`}
               >
                 <span className="w-[18px]"></span>
                 Partners
@@ -224,11 +220,10 @@ const AdminDashboard = () => {
   rounded-lg
   transition-all duration-200
   cursor-pointer
-  ${
-    activePage === "steps" || activePage === "addStep"
-      ? "bg-white text-black shadow-md"
-      : "text-white hover:bg-white/10"
-  }`}
+  ${activePage === "steps" || activePage === "addStep"
+                    ? "bg-white text-black shadow-md"
+                    : "text-white hover:bg-white/10"
+                  }`}
               >
                 <span className="w-[18px]"></span>
                 Steps
@@ -247,11 +242,10 @@ const AdminDashboard = () => {
         transition-all duration-200
         cursor-pointer
 
-        ${
-          activePage === "jobs" || activePage === "postJob"
-            ? "bg-white text-black shadow-md"
-            : "hover:bg-white/10"
-        }
+        ${activePage === "jobs" || activePage === "postJob"
+                ? "bg-white text-black shadow-md"
+                : "hover:bg-white/10"
+              }
       `}
           >
             <Briefcase size={18} />
@@ -269,13 +263,12 @@ const AdminDashboard = () => {
         transition-all duration-200
         cursor-pointer
 
-        ${
-          activePage === "blogs" ||
-          activePage === "selectBlogCategory" ||
-          activePage === "postBlog"
-            ? "bg-white text-black shadow-md"
-            : "hover:bg-white/10"
-        }
+        ${activePage === "blogs" ||
+                activePage === "selectBlogCategory" ||
+                activePage === "postBlog"
+                ? "bg-white text-black shadow-md"
+                : "hover:bg-white/10"
+              }
       `}
           >
             <FileText size={18} />
@@ -293,11 +286,10 @@ const AdminDashboard = () => {
         transition-all duration-200
         cursor-pointer
 
-        ${
-          activePage === "testimonials" || activePage === "postTestimonial"
-            ? "bg-white text-black shadow-md"
-            : "hover:bg-white/10"
-        }
+        ${activePage === "testimonials" || activePage === "postTestimonial"
+                ? "bg-white text-black shadow-md"
+                : "hover:bg-white/10"
+              }
       `}
           >
             <MessageSquare size={18} />

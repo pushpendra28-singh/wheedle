@@ -29,11 +29,11 @@ function Newsletter({
     return emailRegex.test(email);
   };
 
- const validatePhone = (phone) => {
-  const cleaned = phone.replace(/[\s-]/g, "");
-  const phoneRegex = /^\+?[0-9]{7,15}$/;
-  return phoneRegex.test(cleaned);
-};
+  const validatePhone = (phone) => {
+    const cleaned = phone.replace(/[\s-]/g, "");
+    const phoneRegex = /^\+?[0-9]{7,15}$/;
+    return phoneRegex.test(cleaned);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -138,7 +138,7 @@ function Newsletter({
                 onChange={(e) => setValue(e.target.value)}
                 className="flex-1 w-full bg-white/5 sm:bg-transparent border border-white/20 sm:border-none rounded-lg sm:rounded-none outline-none px-4 lg:px-5 py-3 text-[13px] lg:text-[14px] text-white placeholder-white/50"
               />
-             
+
               <button
                 type="submit"
                 className="inline-flex items-center justify-center gap-3
@@ -156,11 +156,11 @@ function Newsletter({
                 {content.buttonText}
               </button>
             </form>
-          {error && (
-  <p className="text-red-400 text-sm mt-3 max-w-[570px] mx-auto text-left">
-    {error}
-  </p>
-)}
+            {error && (
+              <p className="text-red-400 text-sm mt-3 max-w-[570px] mx-auto text-left">
+                {error}
+              </p>
+            )}
           </div>
         </div>
       </div>

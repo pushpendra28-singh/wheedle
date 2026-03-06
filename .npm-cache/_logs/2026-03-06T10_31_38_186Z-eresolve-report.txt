@@ -1,0 +1,52 @@
+'Log files:
+/Users/mac/Desktop/untitled folder/wheedle/.npm-cache/_logs/2026-03-06T10_31_38_186Z-debug-0.log
+
+# npm resolution error report
+
+While resolving: react-animated-cursor@2.11.2
+Found: react@19.2.3
+node_modules/react
+  react@"^19.2.0" from the root project
+  peerOptional react@"^18.0.0 || ^19.0.0" from framer-motion@12.29.2
+  node_modules/framer-motion
+    framer-motion@"^12.29.2" from the root project
+  peer react@"^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0" from lucide-react@0.562.0
+  node_modules/lucide-react
+    lucide-react@"^0.562.0" from the root project
+  peer react@"^19.2.3" from react-dom@19.2.3
+  node_modules/react-dom
+    react-dom@"^19.2.0" from the root project
+    peerOptional react-dom@"^18.0.0 || ^19.0.0" from framer-motion@12.29.2
+    node_modules/framer-motion
+      framer-motion@"^12.29.2" from the root project
+    peerOptional react-dom@">=18" from react-router@7.11.0
+    node_modules/react-router
+      react-router@"7.11.0" from react-router-dom@7.11.0
+      node_modules/react-router-dom
+        react-router-dom@"^7.11.0" from the root project
+    peer react-dom@">=18" from react-router-dom@7.11.0
+    node_modules/react-router-dom
+      react-router-dom@"^7.11.0" from the root project
+  peer react@">=18" from react-router@7.11.0
+  node_modules/react-router
+    react-router@"7.11.0" from react-router-dom@7.11.0
+    node_modules/react-router-dom
+      react-router-dom@"^7.11.0" from the root project
+  peer react@">=18" from react-router-dom@7.11.0
+  node_modules/react-router-dom
+    react-router-dom@"^7.11.0" from the root project
+
+Could not resolve dependency:
+peer react@"^18.2.0" from react-animated-cursor@2.11.2
+node_modules/react-animated-cursor
+  react-animated-cursor@"^2.11.2" from the root project
+
+Conflicting peer dependency: react@18.3.1
+node_modules/react
+  peer react@"^18.2.0" from react-animated-cursor@2.11.2
+  node_modules/react-animated-cursor
+    react-animated-cursor@"^2.11.2" from the root project
+
+Fix the upstream dependency conflict, or retry
+this command with --force or --legacy-peer-deps
+to accept an incorrect (and potentially broken) dependency resolution.

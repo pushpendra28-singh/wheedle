@@ -1,15 +1,15 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import Button from "../components/Button_x";
 import LogosData from "../jsondata/LogosData";
 import API_BASE_URL from "../config/api";
 
 const CurrentOpenings = ({ onStartNowClick }) => {
-   const [jobs, setJobs] = useState([]);
+  const [jobs, setJobs] = useState([]);
 
   // fetch jobs from backend
   useEffect(() => {
 
-    fetch(`${API_BASE_URL}/jobs`)
+    fetch(`${API_BASE_URL}/jobs/`)
 
       .then((res) => res.json())
 
@@ -92,7 +92,7 @@ const CurrentOpenings = ({ onStartNowClick }) => {
               >
                 {/* Image */}
                 <img
-                 src={`${API_BASE_URL}/uploads/${job.image}`}
+                  src={`${API_BASE_URL}/uploads/${job.image}/`}
                   alt={job.title}
                   className="w-full h-[260px] object-cover"
                 />

@@ -184,11 +184,10 @@ const Form = forwardRef((props, ref) => {
 
             {message && (
               <p
-                className={`text-center text-sm ${
-                  message.includes("Successfully")
-                    ? "text-green-400"
-                    : "text-red-400"
-                }`}
+                className={`text-center text-sm ${message.includes("Successfully")
+                  ? "text-green-400"
+                  : "text-red-400"
+                  }`}
               >
                 {message}
               </p>

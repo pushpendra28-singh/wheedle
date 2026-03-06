@@ -18,7 +18,7 @@ const BlogDetails = () => {
 
   const fetchBlog = async () => {
     try {
-      const res = await axios.get(`${API_BASE_URL}/blogs/${slug}`);
+      const res = await axios.get(`${API_BASE_URL}/blogs/${slug}/`);
 
       setBlog(res.data);
     } catch (error) {
@@ -71,7 +71,7 @@ const BlogDetails = () => {
           <div className="flex flex-col lg:flex-row items-center gap-10">
             <div className="w-full lg:w-1/2">
               <img
-               src={`${API_BASE_URL}/uploads/${blog.blogImage}`}
+                src={`${API_BASE_URL}/uploads/${blog.blogImage}/`}
                 alt={blog.title}
                 className="rounded-2xl w-full object-cover border border-white/10"
               />

@@ -7,7 +7,7 @@ function BlogLatest() {
 
   useEffect(() => {
     axios
-      .get(`${API_BASE_URL}/blogs`)
+      .get(`${API_BASE_URL}/blogs/`)
 
       .then((res) => {
         const sortedBlogs = res.data
@@ -18,8 +18,8 @@ function BlogLatest() {
       });
   }, []);
 
-  
-  
+
+
   // const blogsRow1 = [
   //   {
   //     title: "Strategy & Consulting",
@@ -69,7 +69,7 @@ function BlogLatest() {
 
   // divide blogs serial wise
 
-  
+
   return (
     <section className="w-full py-20">
       <div className="w-full px-5">

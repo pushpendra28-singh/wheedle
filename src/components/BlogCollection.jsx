@@ -15,13 +15,13 @@ function BlogCollection() {
 
   const fetchBlogs = async () => {
     try {
-      const res = await axios.get(`${API_BASE_URL}/blogs`);
+      const res = await axios.get(`${API_BASE_URL}/blogs/`);
 
       const comprehensiveBlogs = res.data.filter(
-  (blog) => blog.category === "comprehensive"
-);
+        (blog) => blog.category === "comprehensive"
+      );
 
-setBlogs(comprehensiveBlogs);
+      setBlogs(comprehensiveBlogs);
     } catch (error) {
       console.log(error);
     }
@@ -61,7 +61,7 @@ setBlogs(comprehensiveBlogs);
                     {/* Image */}
                     <div className="w-full sm:w-[191px] h-[191px] flex-shrink-0 rounded-[15px] overflow-hidden">
                       <img
-                       src={`${API_BASE_URL}/uploads/${blog.blogImage}`}
+                        src={`${API_BASE_URL}/uploads/${blog.blogImage}/`}
                         alt={blog.title}
                         className={`w-full h-full object-cover object-top transition-transform duration-300 hover:scale-110
                           ${index === 0 ? "object-right" : "object-top"}
