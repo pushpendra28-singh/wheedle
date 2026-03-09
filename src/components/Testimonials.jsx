@@ -7,7 +7,7 @@ function Testimonials() {
 
   useEffect(() => {
     axios
-      .get(`${API_BASE_URL}/testimonials/`)
+      .get(`${API_BASE_URL}/testimonials`)
       .then((res) => setTestimonials(res.data));
   }, []);
 

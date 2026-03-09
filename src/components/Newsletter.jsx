@@ -57,7 +57,7 @@ function Newsletter({
     }
 
     try {
-      const response = await fetch(`${API_BASE_URL}/leads`, {
+      const response = await fetch(`${API_BASE_URL}/leads/`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

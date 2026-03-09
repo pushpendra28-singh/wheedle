@@ -125,7 +125,7 @@ const ContactPage = ({
       setLoading(true);
 
       // 🔥 1️⃣ SAVE TO DATABASE FIRST
-      await axios.post(`${API_BASE_URL}/formleads`, {
+      await axios.post(`${API_BASE_URL}/formleads/`, {
         name: formData.name,
         email: formData.email,
         phone: formData.phone,
