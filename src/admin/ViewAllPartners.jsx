@@ -15,7 +15,7 @@ const ViewAllPartners = ({ setActivePage }) => {
   const fetchPartners = async () => {
     setLoading(true);
     try {
-      const res = await axios.get(`${API_BASE_URL}/partners/`);
+      const res = await axios.get(`${API_BASE_URL}/partner/`);
       setPartners(res.data);
     } catch (_) {
       setToast({ message: "Failed to fetch partners", type: "error" });
@@ -35,7 +35,7 @@ const ViewAllPartners = ({ setActivePage }) => {
     if (!window.confirm("Are you sure you want to delete this partner?")) return;
 
     try {
-      await axios.delete(`${API_BASE_URL}/partners/${id}/`);
+      await axios.delete(`${API_BASE_URL}/partners/${id}`);
       showSuccess("Partner deleted successfully");
       fetchPartners();
     } catch (_) {
@@ -50,7 +50,7 @@ const ViewAllPartners = ({ setActivePage }) => {
     try {
       setLoading(true);
       await Promise.all(
-        selectedIds.map((id) => axios.delete(`${API_BASE_URL}/partners/${id}/`))
+        selectedIds.map((id) => axios.delete(`${API_BASE_URL}/partners/${id}`))
       );
       showSuccess(`${selectedIds.length} partners deleted successfully`);
       setSelectedIds([]);

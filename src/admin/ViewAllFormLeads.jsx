@@ -54,7 +54,7 @@ const ViewAllFormLeads = () => {
     if (!window.confirm("Are you sure you want to delete this lead?")) return;
 
     try {
-      await axios.delete(`${API_BASE_URL}/formleads/${id}/`);
+      await axios.delete(`${API_BASE_URL}/formleads/${id}`);
       showSuccess("Lead deleted successfully");
       setLeads((prev) => prev.filter((lead) => lead._id !== id));
     } catch (_) {
@@ -69,7 +69,7 @@ const ViewAllFormLeads = () => {
     try {
       setLoading(true);
       await Promise.all(
-        selectedIds.map((id) => axios.delete(`${API_BASE_URL}/formleads/${id}/`))
+        selectedIds.map((id) => axios.delete(`${API_BASE_URL}/formleads/${id}`))
       );
       showSuccess(`${selectedIds.length} leads deleted successfully`);
       setSelectedIds([]);

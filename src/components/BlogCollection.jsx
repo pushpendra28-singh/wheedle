@@ -15,7 +15,7 @@ function BlogCollection() {
 
   const fetchBlogs = async () => {
     try {
-      const res = await axios.get(`${API_BASE_URL}/blogs/`);
+      const res = await axios.get(`${API_BASE_URL}/blogs`);
 
       const comprehensiveBlogs = res.data.filter(
         (blog) => blog.category === "comprehensive"

@@ -35,7 +35,7 @@ const ViewAllSteps = ({ setActivePage }) => {
     if (!window.confirm("Are you sure you want to delete this step?")) return;
 
     try {
-      await axios.delete(`${API_BASE_URL}/steps/${id}/`);
+      await axios.delete(`${API_BASE_URL}/steps/${id}`);
       showSuccess("Step deleted successfully");
       fetchSteps();
     } catch (_) {
@@ -50,7 +50,7 @@ const ViewAllSteps = ({ setActivePage }) => {
     try {
       setLoading(true);
       await Promise.all(
-        selectedIds.map((id) => axios.delete(`${API_BASE_URL}/steps/${id}/`))
+        selectedIds.map((id) => axios.delete(`${API_BASE_URL}/steps/${id}`))
       );
       showSuccess(`${selectedIds.length} steps deleted successfully`);
       setSelectedIds([]);

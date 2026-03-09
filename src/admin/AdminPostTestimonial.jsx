@@ -137,7 +137,7 @@ function AdminPostTestimonial({ onViewAllTestimonials }) {
                 value={formData.name}
                 onChange={handleChange}
                 placeholder="e.g. John Doe"
-                className="w-full border border-gray-300 p-4 rounded-xl outline-none focus:ring-2 focus:ring-purple-500 shadow-sm"
+                className="w-full border border-gray-300 p-4 rounded-xl outline-none focus:ring-2 focus:ring-purple-500 shadow-sm text-gray-900"
                 required
               />
             </div>
@@ -149,7 +149,7 @@ function AdminPostTestimonial({ onViewAllTestimonials }) {
                 value={formData.position}
                 onChange={handleChange}
                 placeholder="e.g. CEO, Tech Corp"
-                className="w-full border border-gray-300 p-4 rounded-xl outline-none focus:ring-2 focus:ring-purple-500 shadow-sm"
+                className="w-full border border-gray-300 p-4 rounded-xl outline-none focus:ring-2 focus:ring-purple-500 shadow-sm text-gray-900"
                 required
               />
             </div>
@@ -162,7 +162,7 @@ function AdminPostTestimonial({ onViewAllTestimonials }) {
               name="date"
               value={formData.date}
               onChange={handleChange}
-              className="w-full border border-gray-300 p-4 rounded-xl outline-none focus:ring-2 focus:ring-purple-500 shadow-sm"
+              className="w-full border border-gray-300 p-4 rounded-xl outline-none focus:ring-2 focus:ring-purple-500 shadow-sm text-gray-900"
               required
             />
           </div>
@@ -175,7 +175,7 @@ function AdminPostTestimonial({ onViewAllTestimonials }) {
               onChange={handleChange}
               placeholder="Enter client's testimonial feedback..."
               rows="5"
-              className="w-full border border-gray-300 p-4 rounded-xl outline-none focus:ring-2 focus:ring-purple-500 shadow-sm"
+              className="w-full border border-gray-300 p-4 rounded-xl outline-none focus:ring-2 focus:ring-purple-500 shadow-sm text-gray-900"
               required
             />
           </div>

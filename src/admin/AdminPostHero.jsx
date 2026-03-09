@@ -32,6 +32,8 @@ function AdminPostHero() {
   };
 
   const handleChange = (e) => {
+    if (e.target.name === "id") return;
+
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
@@ -41,10 +43,21 @@ function AdminPostHero() {
   const handleSubmit = async () => {
     try {
       setSubmitting(true);
-      await axios.put(`${API_BASE_URL}/hero/`, formData);
-      setToast({ message: "Hero section updated successfully!", type: "success" });
+
+      const { _id, ...payload } = formData; // _id remove
+
+      await axios.put(`${API_BASE_URL}/hero/`, payload);
+
+      setToast({
+        message: "Hero section updated successfully!",
+        type: "success"
+      });
+
     } catch (_) {
-      setToast({ message: "Failed to update hero section", type: "error" });
+      setToast({
+        message: "Failed to update hero section",
+        type: "error"
+      });
     } finally {
       setSubmitting(false);
     }

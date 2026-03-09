@@ -35,7 +35,7 @@ const ViewAllJobs = ({ onPostNew }) => {
     if (!window.confirm("Are you sure you want to delete this job?")) return;
 
     try {
-      await fetch(`${API_BASE_URL}/jobs/${id}/`, { method: "DELETE" });
+      await fetch(`${API_BASE_URL}/jobs/${id}`, { method: "DELETE" });
       showSuccess("Job deleted successfully");
       fetchJobs();
     } catch (_) {
@@ -51,7 +51,7 @@ const ViewAllJobs = ({ onPostNew }) => {
       setLoading(true);
       await Promise.all(
         selectedIds.map((id) =>
-          fetch(`${API_BASE_URL}/jobs/${id}/`, { method: "DELETE" })
+          fetch(`${API_BASE_URL}/jobs/${id}`, { method: "DELETE" })
         )
       );
       showSuccess(`${selectedIds.length} jobs deleted successfully`);

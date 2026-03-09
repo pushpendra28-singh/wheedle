@@ -35,7 +35,7 @@ const ViewAllBlogs = ({ onPostNew }) => {
     if (!window.confirm("Are you sure you want to delete this blog?")) return;
 
     try {
-      await fetch(`${API_BASE_URL}/blogs/${id}/`, { method: "DELETE" });
+      await fetch(`${API_BASE_URL}/blogs/${id}`, { method: "DELETE" });
       showSuccess("Blog deleted successfully");
       fetchBlogs();
     } catch (_) {
@@ -51,7 +51,7 @@ const ViewAllBlogs = ({ onPostNew }) => {
       setLoading(true);
       await Promise.all(
         selectedIds.map((id) =>
-          fetch(`${API_BASE_URL}/blogs/${id}/`, { method: "DELETE" })
+          fetch(`${API_BASE_URL}/blogs/${id}`, { method: "DELETE" })
         )
       );
       showSuccess(`${selectedIds.length} blogs deleted successfully`);

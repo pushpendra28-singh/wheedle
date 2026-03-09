@@ -18,7 +18,7 @@ const BlogDetails = () => {
 
   const fetchBlog = async () => {
     try {
-      const res = await axios.get(`${API_BASE_URL}/blogs/${slug}/`);
+      const res = await axios.get(`${API_BASE_URL}/blogs/${slug}`);
 
       setBlog(res.data);
     } catch (error) {

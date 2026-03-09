@@ -54,25 +54,25 @@ const AdminDashboard = () => {
   const fetchCounts = async () => {
     try {
       const jobRes = await axios.get(
-        `${API_BASE_URL}/jobs/count/all/`,
+        `${API_BASE_URL}/jobs/count/all`,
       );
 
       const testimonialRes = await axios.get(
-        `${API_BASE_URL}/testimonial/count/all/`,
+        `${API_BASE_URL}/testimonial/count/all`,
       );
       const blogRes = await axios.get(
-        `${API_BASE_URL}/blogs/count/all/`,
+        `${API_BASE_URL}/blogs/count/all`,
       );
       const applicationsRes = await axios.get(
-        `${API_BASE_URL}/contact/count/all/`,
+        `${API_BASE_URL}/contact/count/all`,
       );
 
       const leadsRes = await axios.get(
-        `${API_BASE_URL}/leads/count/all/`,
+        `${API_BASE_URL}/leads/count/all`,
       );
       // Form Leads Count
       const formLeadsRes = await axios.get(
-        `${API_BASE_URL}/formleads/count/all/`,
+        `${API_BASE_URL}/formleads/count/all`,
       );
       console.log("Counts fetched:", jobRes)
       // alert(jobRes.data.count);

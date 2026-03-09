@@ -11,7 +11,7 @@ function Partners() {
 
   const fetchPartners = async () => {
     try {
-      const res = await axios.get(`${API_BASE_URL}/partners/`);
+      const res = await axios.get(`${API_BASE_URL}/partner/`);
 
       setPartners(res.data);
     } catch (error) {

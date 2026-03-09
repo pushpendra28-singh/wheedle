@@ -35,7 +35,7 @@ const ViewAllTestimonials = ({ onClose }) => {
     if (!window.confirm("Are you sure you want to delete this testimonial?")) return;
 
     try {
-      await fetch(`${API_BASE_URL}/testimonial/${id}/`, { method: "DELETE" });
+      await fetch(`${API_BASE_URL}/testimonial/${id}`, { method: "DELETE" });
       showSuccess("Testimonial deleted successfully");
       fetchTestimonials();
     } catch (_) {
@@ -51,7 +51,7 @@ const ViewAllTestimonials = ({ onClose }) => {
       setLoading(true);
       await Promise.all(
         selectedIds.map((id) =>
-          fetch(`${API_BASE_URL}/testimonial/${id}/`, { method: "DELETE" })
+          fetch(`${API_BASE_URL}/testimonial/${id}`, { method: "DELETE" })
         )
       );
       showSuccess(`${selectedIds.length} testimonials deleted successfully`);

@@ -54,7 +54,7 @@ const ViewAllContacts = () => {
     if (!window.confirm("Are you sure you want to delete this application?")) return;
 
     try {
-      await axios.delete(`${API_BASE_URL}/contact/${id}/`);
+      await axios.delete(`${API_BASE_URL}/contact/${id}`);
       showSuccess("Application deleted successfully");
       fetchContacts();
     } catch (_) {
@@ -69,7 +69,7 @@ const ViewAllContacts = () => {
     try {
       setLoading(true);
       await Promise.all(
-        selectedIds.map((id) => axios.delete(`${API_BASE_URL}/contact/${id}/`))
+        selectedIds.map((id) => axios.delete(`${API_BASE_URL}/contact/${id}`))
       );
       showSuccess(`${selectedIds.length} applications deleted successfully`);
       setSelectedIds([]);
