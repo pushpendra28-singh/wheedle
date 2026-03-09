@@ -12,7 +12,7 @@ function ServicesMission() {
       ),
       title: "AI Web Engineering Agents",
       description: "We offer secure, highly functional web engineering agents for applications and websites designed to meet industry standards and increase your web traffic.",
-      path:"/service/web",
+      path:"/our-service/web",
       highlight: true,
     },
     {
@@ -23,7 +23,7 @@ function ServicesMission() {
       ),
       title: "Autonomous Mobile Application Agents",
       description: "We deploy Autonomous Mobile Application Agents that design, develop, test, and optimize mobile apps across iOS and Android.",
-      path:"/service/app",
+      path:"/our-service/app",
     },
 
     {
@@ -34,7 +34,7 @@ function ServicesMission() {
       ),
       title: "AI Software Engineering Platforms",
       description: "Get a customized AI Agent end-to-end software development services that focus on your productivity enhancement and operational goals.",
-      path:"/service/software",
+      path:"/our-service/software",
     },
     {
       icon: (
@@ -45,7 +45,7 @@ function ServicesMission() {
       ),
       title: " Intelligent IT Strategy & Advisory Agents",
       description: "Get strategic IT Consulting on digital transformation and technology strategy by AI Advisory agents that create business strategies specifically for your business needs.",
-      path:"/service/IT",
+      path:"/our-service/IT",
     },
     {
       icon: (
@@ -55,7 +55,7 @@ function ServicesMission() {
       ),
       title: "AI Digital Marketing Agent",
       description: "Wheedle Technologies delivers customized AI Agents and Agentic Marketing Platforms for SEO, performance marketing, social media, email marketing, and advanced analytics solutions to improve visibility and engage the right audiences.",
-      path:"/service/digitalmarketing",
+      path:"/our-service/digitalmarketing",
     },
     {
       icon: (
@@ -65,7 +65,7 @@ function ServicesMission() {
       ),
       title: "AI-Assisted Brand & Visual Design Systems",
       description: "Our AI Visual Design Systems have an eye for the aesthetics needed to capture your audience’s attention, crafting graphic designs that support your branding.",
-      path:"/service/graphicdesigning",
+      path:"/our-service/graphicdesigning",
      },
     {
       icon: (
@@ -75,7 +75,7 @@ function ServicesMission() {
       ),
       title: "Autonomous UI/UX Intelligence Platforms",
       description: "We create AI UI/UX Agents that create user-centered designs to deliver seamless and meaningful digital experiences aligned with your business needs.",
-      path:"/service/UI",
+      path:"/our-service/UI",
     },
     {
       icon: (
@@ -86,7 +86,7 @@ function ServicesMission() {
       ),
       title: "AI Solutions & Intelligent Automation",
       description: "We design AI-driven systems with the purpose to automate your workflows and enabling data-driven decision-making, so you can focus on creative decisions.",
-      path:"/service/AIsolutions",
+      path:"/our-service/AIsolutions",
     },
   ];
 

@@ -1,6 +1,6 @@
 import Button from "../components/Button_x";
  
-const Cards = ({ img, title, desc, location, buttonText = "Start Now" }) => {
+const Cards = ({ img, title, desc, location }) => {
   return (
     <div
       className="bg-[#0E1228] rounded-[30px] h-[550px] flex flex-col overflow-hidden shadow-lg
@@ -36,14 +36,14 @@ const Cards = ({ img, title, desc, location, buttonText = "Start Now" }) => {
         </p>
  
         {/* Button */}
-        <Button
+        {/* <Button
           size="md"
           showArrow
           className="mt-auto w-fit bg-white text-black text-[14px] font-medium rounded-full px-[19px] py-[9px] transition"
           padding="12px 32px"
         >
           {buttonText}
-        </Button>
+        </Button> */}
       </div>
     </div>
   );
