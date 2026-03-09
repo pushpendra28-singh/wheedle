@@ -28,6 +28,7 @@ function AboutPage() {
         {/* <AboutCEO /> */}
         {/* <AboutTeam /> */}
         {/* <AboutTeamMore /> */}
+        
         <Newsletter
           content={{
             titleLine1: "Let's Build",

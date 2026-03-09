@@ -11,6 +11,7 @@ const ViewAllFormLeads = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(10);
   const [toast, setToast] = useState(null);
+  const [selectedMessage, setSelectedMessage] = useState(null);
 
   const statusColors = {
     Pending: "bg-yellow-100 text-yellow-700",
@@ -43,7 +44,7 @@ const ViewAllFormLeads = () => {
       await axios.put(`${API_BASE_URL}/formleads/${id}/`, { status });
       showSuccess(`Status updated to ${status}`);
       setLeads((prev) =>
-        prev.map((lead) => (lead._id === id ? { ...lead, status } : lead))
+        prev.map((lead) => (lead._id === id ? { ...lead, status } : lead)),
       );
     } catch (_) {
       showError("Failed to update status");
@@ -64,12 +65,19 @@ const ViewAllFormLeads = () => {
 
   const handleBulkDelete = async () => {
     if (selectedIds.length === 0) return;
-    if (!window.confirm(`Are you sure you want to delete ${selectedIds.length} selected leads?`)) return;
+    if (
+      !window.confirm(
+        `Are you sure you want to delete ${selectedIds.length} selected leads?`,
+      )
+    )
+      return;
 
     try {
       setLoading(true);
       await Promise.all(
-        selectedIds.map((id) => axios.delete(`${API_BASE_URL}/formleads/${id}`))
+        selectedIds.map((id) =>
+          axios.delete(`${API_BASE_URL}/formleads/${id}`),
+        ),
       );
       showSuccess(`${selectedIds.length} leads deleted successfully`);
       setSelectedIds([]);
@@ -82,7 +90,7 @@ const ViewAllFormLeads = () => {
 
   const toggleSelect = (id) => {
     setSelectedIds((prev) =>
-      prev.includes(id) ? prev.filter((p) => p !== id) : [...prev, id]
+      prev.includes(id) ? prev.filter((p) => p !== id) : [...prev, id],
     );
   };
 
@@ -102,6 +110,12 @@ const ViewAllFormLeads = () => {
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
+  const truncateMessage = (msg) => {
+    const words = msg.split(" ");
+    if (words.length <= 3) return msg;
+    return words.slice(0, 3).join(" ") + "...";
+  };
+
   return (
     <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-300 relative">
       {toast && (
@@ -112,11 +126,36 @@ const ViewAllFormLeads = () => {
         />
       )}
 
+      {selectedMessage && (
+        <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
+          <div className="bg-white rounded-xl shadow-xl max-w-lg w-full p-6 relative">
+            <button
+              onClick={() => setSelectedMessage(null)}
+              className="absolute top-3 right-3 text-gray-500 hover:text-red-500 text-xl"
+            >
+              ✕
+            </button>
+
+            <h3 className="text-xl font-semibold mb-4 text-gray-800">
+              Full Message
+            </h3>
+
+            <p className="text-gray-600 leading-relaxed whitespace-pre-wrap">
+              {selectedMessage}
+            </p>
+          </div>
+        </div>
+      )}
+
       {/* HEADER */}
       <div className="flex justify-between items-center mb-6">
         <div>
-          <h2 className="text-3xl font-semibold text-gray-800">All Form Leads</h2>
-          <p className="text-gray-500 text-sm mt-1">Total: {leads.length} leads</p>
+          <h2 className="text-3xl font-semibold text-gray-800">
+            All Form Leads
+          </h2>
+          <p className="text-gray-500 text-sm mt-1">
+            Total: {leads.length} leads
+          </p>
         </div>
 
         {selectedIds.length > 0 && (
@@ -136,35 +175,41 @@ const ViewAllFormLeads = () => {
         </div>
       ) : (
         <>
-          <div className="overflow-x-auto">
-            <table className="w-full border-collapse">
+          <div className="overflow-x-auto w-full">
+            <table className="min-w-[1100px] w-full border border-gray-300">
               <thead>
                 <tr className="bg-gray-100 text-left text-gray-800">
                   <th className="p-4 w-10 border text-center">
                     <input
                       type="checkbox"
                       className="w-5 h-5 cursor-pointer"
-                      checked={selectedIds.length === currentItems.length && currentItems.length > 0}
+                      checked={
+                        selectedIds.length === currentItems.length &&
+                        currentItems.length > 0
+                      }
                       onChange={toggleSelectAll}
                     />
                   </th>
                   <th className="p-4 border font-semibold">Name</th>
                   <th className="p-4 border font-semibold">Email</th>
                   <th className="p-4 border font-semibold">Phone</th>
-                  <th className="p-4 border font-semibold">Message</th>
+                 <th className="p-4 border font-semibold min-w-[320px]">Message</th>
                   <th className="p-4 border font-semibold">Date</th>
-                  <th className="p-4 border font-semibold">Status</th>
-                  <th className="p-4 border font-semibold text-center">Action</th>
+                  <th className="p-4 border font-semibold min-w-[150px]">Status</th>
+                  <th className="p-4 border font-semibold text-center">
+                    Action
+                  </th>
                 </tr>
               </thead>
 
               <tbody>
                 {currentItems.map((lead) => (
                   <tr
-                    key={lead._id}
-                    className={`hover:bg-gray-50 transition ${selectedIds.includes(lead._id) ? "bg-blue-50" : ""
-                      }`}
-                  >
+  key={lead._id}
+  className={`hover:bg-gray-50 transition whitespace-nowrap ${
+    selectedIds.includes(lead._id) ? "bg-blue-50" : ""
+  }`}
+>
                     <td className="p-4 border text-center">
                       <input
                         type="checkbox"
@@ -173,10 +218,28 @@ const ViewAllFormLeads = () => {
                         onChange={() => toggleSelect(lead._id)}
                       />
                     </td>
-                    <td className="p-4 border font-medium text-gray-800">{lead.name}</td>
+                    <td className="p-4 border font-medium text-gray-800">
+                      {lead.name}
+                    </td>
                     <td className="p-4 border text-gray-600">{lead.email}</td>
                     <td className="p-4 border text-gray-600">{lead.phone}</td>
-                    <td className="p-4 border text-gray-600 max-w-xs truncate">{lead.message}</td>
+                    {/* <td className="p-4 border text-gray-600 max-w-xs truncate">{lead.message}</td> */}
+                    <td className="p-4 border text-gray-600 min-w-[320px]">
+                      {lead.message.split(" ").length > 3 ? (
+                        <>
+                          {truncateMessage(lead.message)}
+                          <button
+                            onClick={() => setSelectedMessage(lead.message)}
+                            className="text-blue-600 ml-2 hover:underline font-medium"
+                          >
+                            Read more
+                          </button>
+                        </>
+                      ) : (
+                        lead.message
+                      )}
+                    </td>
+
                     <td className="p-4 border text-gray-500">
                       {new Date(lead.createdAt).toLocaleDateString()}
                     </td>
@@ -184,8 +247,10 @@ const ViewAllFormLeads = () => {
                       <select
                         value={lead.status}
                         onChange={(e) => updateStatus(lead._id, e.target.value)}
-                        className={`px-3 py-2 rounded-lg font-medium cursor-pointer outline-none w-full ${statusColors[lead.status] || "bg-gray-100 text-gray-700"
-                          }`}
+                        className={`px-3 py-2 rounded-lg font-medium cursor-pointer outline-none min-w-[130px] ${
+                          statusColors[lead.status] ||
+                          "bg-gray-100 text-gray-700"
+                        }`}
                       >
                         <option>Pending</option>
                         <option>Contacted</option>
@@ -207,7 +272,9 @@ const ViewAllFormLeads = () => {
             </table>
 
             {leads.length === 0 && (
-              <div className="text-center py-10 text-gray-500 border rounded-b-xl">No leads found.</div>
+              <div className="text-center py-10 text-gray-500 border rounded-b-xl">
+                No leads found.
+              </div>
             )}
           </div>
 
@@ -227,10 +294,11 @@ const ViewAllFormLeads = () => {
                   <button
                     key={i}
                     onClick={() => paginate(i + 1)}
-                    className={`w-10 h-10 rounded-lg border transition ${currentPage === i + 1
-                      ? "bg-[#2E1A6D] text-white border-[#2E1A6D]"
-                      : "border-gray-300 hover:bg-gray-100"
-                      }`}
+                    className={`w-10 h-10 rounded-lg border transition ${
+                      currentPage === i + 1
+                        ? "bg-[#2E1A6D] text-white border-[#2E1A6D]"
+                        : "border-gray-300 hover:bg-gray-100"
+                    }`}
                   >
                     {i + 1}
                   </button>

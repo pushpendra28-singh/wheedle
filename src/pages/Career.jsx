@@ -94,7 +94,7 @@ const Career = () => {
                   that’s just as committed to you as it is to the clients.
                 </p>
 
-                <div className="w-full h-[58px]">
+                <div className="w-full h-[58px]" onClick={scrollToForm}>
                   <Button padding="28px">Join Us Now</Button>
                 </div>
               </div>
@@ -239,7 +239,6 @@ const Career = () => {
           </div>
         </section>
 
-        
         {/* ================= CURRENT OPENINGS + Form ================= */}
         <CurrentOpenings onStartNowClick={scrollToForm} />
         <Form ref={joinUsRef} />
