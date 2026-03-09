@@ -306,3 +306,30 @@ focus:ring-[#4F46E5]
 outline-none;
 
 }
+
+
+
+/* For card popup */
+@keyframes fadeIn{
+from{opacity:0}
+to{opacity:1}
+}
+
+@keyframes scaleIn{
+from{
+opacity:0;
+transform:scale(.9) translateY(20px);
+}
+to{
+opacity:1;
+transform:scale(1) translateY(0);
+}
+}
+
+.animate-fadeIn{
+animation:fadeIn .25s ease forwards;
+}
+
+.animate-scaleIn{
+animation:scaleIn .3s ease forwards;
+}
