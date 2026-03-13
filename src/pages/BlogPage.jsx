@@ -9,10 +9,16 @@ import BlogNewsletter from "../components/BlogNewsletter";
 import Footer from "../components/Footer";
 import Testimonials from "../components/Testimonials";
 import Newsletter from "../components/Newsletter";
+import SEO from "../components/SEO";
 
 function BlogPage() {
   return (
     <div className="w-full min-h-screen">
+      <SEO
+      title="AI Insights & Tech Blog – Wheedle Technologies"
+        description="Explore expert AI insights, tech trends, automation tips, and business innovation articles on the Wheedle Technologies blog."
+        url="https://wheedletechnologies.ai/blog"
+      />
       <Header />
        <div className="w-full min-h-screen bg-cover bg-center bg-no-repeat"
         style={{

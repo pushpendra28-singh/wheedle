@@ -7,9 +7,16 @@ import Footer from "../components/Footer";
 import Testimonials from "../components/Testimonials";
 import Businesses from "../components/Businesses";
 import Newsletter from "../components/Newsletter";
+import SEO from "../components/SEO";
 function ServicesPage() {
   return (
     <div className="w-full min-h-screen">
+
+      <SEO
+      title="Custom AI Services for Business Growth | Contact Wheedle Technologies"
+        description="Wheedle Technologies provides AI-powered automation, chatbot development, and enterprise AI solutions for modern businesses."
+        url="https://wheedletechnologies.ai/services"
+      />
       <Header />
         <div className="w-full min-h-screen bg-cover bg-center bg-no-repeat"
         style={{
@@ -19,7 +26,12 @@ function ServicesPage() {
     
       <ServicesBento />
       <ServiceOfferings />
-      <ServicesMission />
+      <ServicesMission 
+      title1="End-to-End Agentic AI Platforms & Digital Services for Business"
+      title2="Growth: Our Complete Portfolio"
+      description="Wheedle Technologies presents you a fully integrated AI Agents, Agentic Platforms, and Digital Service Suite under one roof. Browse through our services to find the perfect match for your business."
+
+      />
       {/* <ServicesCTA /> */}
       <Newsletter
         content={{

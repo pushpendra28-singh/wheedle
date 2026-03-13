@@ -13,13 +13,22 @@ function Footer() {
     { label: "Careers", path: "/career" },
   ];
 
+
   const services = Object.keys(servicesData).map((key) => {
-    const title = servicesData[key].hero.title_main;
-    return {
-      label: title,
-      path: `/our-service/${key}`,
-    };
-  });
+  const service = servicesData[key];
+
+  return {
+    label: service.hero.title_main,
+    path: `/our-service/${service.slug}`,
+  };
+});
+  // const services = Object.keys(servicesData).map((key) => {
+  //   const title = servicesData[key].hero.title_main;
+  //   return {
+  //     label: title,
+  //     path: `/our-service/${key}`,
+  //   };
+  // });
 
   const [openContact, setOpenContact] = useState(false);
 

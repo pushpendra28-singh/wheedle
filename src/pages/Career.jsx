@@ -5,6 +5,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Button from "../components/Button_x";
 import Badge from "../components/Badge";
+import SEO from "../components/SEO";
 
 const Career = () => {
   const joinUsRef = useRef(null);
@@ -17,6 +18,11 @@ const Career = () => {
   };
   return (
     <>
+     <SEO
+     title="Careers at Wheedle Technologies – Join Our AI Team"
+        description="Explore career opportunities at Wheedle Technologies, grow your AI and automation expertise, and join a team driving innovation in smart tech solutions."
+        url="https://wheedletechnologies.ai/career"
+     />
       {/* ================= HEADER / HERO SECTION ================= */}
       <div
         className="w-full h-full bg-cover bg-center bg-no-repeat"

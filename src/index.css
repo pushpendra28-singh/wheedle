@@ -211,15 +211,7 @@ body {
 }
 
 
- /* remove scroll bar from about page */
-
-.scrollbar-hide::-webkit-scrollbar {
-  display: none;
-}
-.scrollbar-hide {
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
+ 
 
 @keyframes whebotPopup {
   0% {
@@ -332,4 +324,26 @@ animation:fadeIn .25s ease forwards;
 
 .animate-scaleIn{
 animation:scaleIn .3s ease forwards;
+}
+
+
+
+/* Desktop thin scrollbar about page */
+@media (min-width: 1024px) {
+  .desktop-scrollbar::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  .desktop-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .desktop-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.4);
+    border-radius: 10px;
+  }
+
+  .desktop-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(255,255,255,0.6);
+  }
 }

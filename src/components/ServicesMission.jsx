@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import servicesData from "../jsondata/ServicesData";
 
 
-function ServicesMission() {
+function ServicesMission({ title1, title2, description }) {
   const services = [
     {
       icon: (
@@ -12,7 +13,7 @@ function ServicesMission() {
       ),
       title: "AI Web Engineering Agents",
       description: "We offer secure, highly functional web engineering agents for applications and websites designed to meet industry standards and increase your web traffic.",
-      path:"/our-service/web",
+      path:`/our-service/${servicesData.web.slug}`,
       highlight: true,
     },
     {
@@ -23,7 +24,8 @@ function ServicesMission() {
       ),
       title: "Autonomous Mobile Application Agents",
       description: "We deploy Autonomous Mobile Application Agents that design, develop, test, and optimize mobile apps across iOS and Android.",
-      path:"/our-service/app",
+      
+      path:`/our-service/${servicesData.app.slug}`,
     },
 
     {
@@ -34,7 +36,8 @@ function ServicesMission() {
       ),
       title: "AI Software Engineering Platforms",
       description: "Get a customized AI Agent end-to-end software development services that focus on your productivity enhancement and operational goals.",
-      path:"/our-service/software",
+      
+      path:`/our-service/${servicesData.software.slug}`,
     },
     {
       icon: (
@@ -45,7 +48,8 @@ function ServicesMission() {
       ),
       title: " Intelligent IT Strategy & Advisory Agents",
       description: "Get strategic IT Consulting on digital transformation and technology strategy by AI Advisory agents that create business strategies specifically for your business needs.",
-      path:"/our-service/IT",
+      
+      path:`/our-service/${servicesData.IT.slug}`,
     },
     {
       icon: (
@@ -55,7 +59,8 @@ function ServicesMission() {
       ),
       title: "AI Digital Marketing Agent",
       description: "Wheedle Technologies delivers customized AI Agents and Agentic Marketing Platforms for SEO, performance marketing, social media, email marketing, and advanced analytics solutions to improve visibility and engage the right audiences.",
-      path:"/our-service/digitalmarketing",
+      
+      path:`/our-service/${servicesData.digitalmarketing.slug}`,
     },
     {
       icon: (
@@ -65,7 +70,8 @@ function ServicesMission() {
       ),
       title: "AI-Assisted Brand & Visual Design Systems",
       description: "Our AI Visual Design Systems have an eye for the aesthetics needed to capture your audience’s attention, crafting graphic designs that support your branding.",
-      path:"/our-service/graphicdesigning",
+      // path:"/our-service/graphicdesigning",
+      path:`/our-service/${servicesData.graphicdesigning.slug}`,
      },
     {
       icon: (
@@ -75,7 +81,8 @@ function ServicesMission() {
       ),
       title: "Autonomous UI/UX Intelligence Platforms",
       description: "We create AI UI/UX Agents that create user-centered designs to deliver seamless and meaningful digital experiences aligned with your business needs.",
-      path:"/our-service/UI",
+      // path:"/our-service/UI",
+      path:`/our-service/${servicesData.UI.slug}`,
     },
     {
       icon: (
@@ -86,7 +93,8 @@ function ServicesMission() {
       ),
       title: "AI Solutions & Intelligent Automation",
       description: "We design AI-driven systems with the purpose to automate your workflows and enabling data-driven decision-making, so you can focus on creative decisions.",
-      path:"/our-service/AIsolutions",
+      // path:"/our-service/AIsolutions",
+      path:`/our-service/${servicesData.AIsolutions.slug}`,
     },
   ];
 
@@ -97,17 +105,20 @@ function ServicesMission() {
           {/* Header */}
           <div className="text-center mb-12">
             <h2 className="text-4xl lg:text-5xl font-Gautam text-white leading-tight mb-2">
-              End-to-End Agentic AI Platforms & Digital 
+              {title1}
+              {/* End-to-End Agentic AI Platforms & Digital 
               <br/>
-                Services for Business
+                Services for Business */}
             </h2>
             <h2 className="text-4xl lg:text-5xl font-gautam text-white/70 leading-tight mb-6">
-              Growth: Our Complete Portfolio
+            {title2}
+              {/* Growth: Our Complete Portfolio */}
             </h2>
             <p className="text-sm text-white leading-relaxed max-w-2xl mx-auto">
-              Wheedle Technologies presents you a fully integrated AI Agents, Agentic Platforms, and Digital Service Suite under one roof.
+              {description}
+              {/* Wheedle Technologies presents you a fully integrated AI Agents, Agentic Platforms, and Digital Service Suite under one roof.
               <br />
-              Browse through our services to find the perfect match for your business.
+              Browse through our services to find the perfect match for your business. */}
 
             </p>
           </div>
